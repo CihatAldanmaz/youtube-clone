@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+input{
+    border-radius: 0.6em;
+    height: 3em;
+    margin-bottom: 7px;
+    border-color: lightgray;
+    border-width: thin;
+    text-indent: 10px; 
+outline-color: skyblue;   
+}
+
+input::placeholder{
+    color: gray;
+    opacity: 0.7;
+    font-weight: bold;
+}
+
+input::focus{
+
+    border:1px solid red;
+
+}
+
+.container{
+    height: auto;
+    width: 50%;
+    margin: 50px auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;    
+}
+
+.wrapper{
+    
+    
+}
+.container > h2{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.name{
+    display: flex;
+    justify-content: space-between;
+}
+.name > input{
+    width: 20em;
+}
+
+.form-mobno > input {
+    width: 42em;
+}
+
+.form-email > input {
+    width: 42em;
+}
+
+.password{
+    display: flex;
+    justify-content: space-between;
+}
+
+.password > input{
+    width: 20em;
+}
+
+.checkbox{
+    display: flex;
+    justify-content: space-between;
+align-items: center;}
+
+[type="checkbox"]
+{
+    vertical-align:middle;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+button{
+    width: 20em;
+    height: 4em;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    
+}
+
+#register{
+    background-color:  #4da6ff;
+}
+
+#signin{
+    background-color:   #00b33c
+
+    ;
+}
