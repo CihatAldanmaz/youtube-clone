@@ -33,7 +33,8 @@ input::focus{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;    
+    flex-direction: column; 
+       
 }
 
 .wrapper{
@@ -49,6 +50,8 @@ input::focus{
     display: flex;
     justify-content: space-between;
 }
+
+
 .name > input{
     width: 20em;
 }
@@ -103,4 +106,24 @@ button{
     background-color:   #00b33c
 
     ;
+}
+
+
+@media screen and (max-width:480px){
+
+    .container{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+    }
+.name{
+    display: flex;
+    flex-direction: column;
+}
+
+.name > input {
+    width: 100%;
+}
+
 }
