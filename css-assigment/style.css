@@ -27,3 +27,32 @@ header > ul > li > a{
     text-decoration: none;
 }
 
+.sectiontop{
+    height: 250px;
+    background-color: #c6bfbf;
+}
+
+.contenttop{
+    position: absolute;
+    left: 17%;
+    right: 17%;
+    top: 8%;
+}
+
+.sectionbottom{
+    margin-top: 20px;
+    display: flex;
+    position: absolute;
+    left: 17%;
+    right: 17%;
+}
+
+.sectionbottom p{
+    margin-right: 100px;
+}
+
+footer{
+    position: absolute;
+    background-color: #0b4d14;
+    height: 50px;
+}
