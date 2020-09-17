@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.main-box{
+    background-color: red;
+    height: 500px;
+    width: 700px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-box .top{
+    display: flex;
+    height: 40px;
+}
+
+.main-box .top input{
+    width: 80%;
+    text-indent: 10px;
+    height: 100%;
+    font-size: 20px;
+    outline-color: skyblue;
+    border: 1px solid lightgray;
+    border-right: thin;
+}
+
+.main-box .top button{
+    width: 20%;
+    height: 108%;
+    border: none;
+    background-color: #3D52FF;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+}
