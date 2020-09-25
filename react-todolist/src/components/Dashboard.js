@@ -34,6 +34,13 @@ export default class Dashboard extends Component {
           .then(data => console.log(data))
           .catch(err => console.log(err))
     }
+
+    deleteToDo = (arg) => {
+        let filteredArray = this.state.todos.filter(todo => todo.title !== arg)
+        this.setState({
+            todos:filteredArray
+        })
+    }
     
     render() {
         console.log(this.state.todos)
@@ -41,7 +48,7 @@ export default class Dashboard extends Component {
             <main>
                 <h1>TO-DO LIST</h1>
                 <Form handleAddButton = {this.handleAddButton}/>
-                <TodoContainer todos = {this.state.todos}/>
+                <TodoContainer todos = {this.state.todos} deleteToDo={this.deleteToDo}/>
             </main>
         )
     }

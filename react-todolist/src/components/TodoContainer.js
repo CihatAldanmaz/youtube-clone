@@ -5,7 +5,7 @@ export default class TodoContainer extends Component {
 
      todosMapping = () => {
          return this.props.todos.map((todo) => {
-         return <TodoCart todo={todo}/>
+         return <TodoCart todo={todo} deleteToDo={this.props.deleteToDo}/>
      }
         )}
 

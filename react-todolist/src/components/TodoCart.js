@@ -5,7 +5,7 @@ export default class TodoCart extends Component {
         const {completed,title} = this.props.todo
         return (
             <div>
-        <li><span class="delete">x</span><input type="checkbox" checked={completed}/><label>{title}</label></li>
+        <li><span class="delete" onClick={() => {this.props.deleteToDo(title)}}>x</span><input type="checkbox" checked={completed}/><label>{title}</label></li>
             </div>
         )
     }
