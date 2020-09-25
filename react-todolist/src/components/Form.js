@@ -11,12 +11,16 @@ export default class Form extends Component {
             inputtext: e.target.value
         })
     }
+
+    inputReset = () => {
+        this.setState({inputtext:''})
+    }
     render() {
         return (
             <div>
                 <form action="#">
-                    <input type="text" placeholder="New Task" onChange={(e) => {this.inputOnChange(e)}}/>
-                    <button type="submit" onClick={(e) => {this.props.handleAddButton(e, this.state.inputtext)}}><strong>ADD</strong></button>
+                    <input value ={this.state.inputtext} type="text" placeholder="New Task" onChange={(e) => {this.inputOnChange(e)}}/>
+                    <button type="submit" onClick={(e) => (this.props.handleAddButton(e, this.state.inputtext), this.setState({inputtext:''}))}><strong>ADD</strong></button>
                 </form>
             </div>
         )

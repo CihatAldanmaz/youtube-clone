@@ -21,7 +21,15 @@ export default class Dashboard extends Component {
     //Handlers
     handleAddButton = (e, input) => {
         e.preventDefault()
-
+       let indexnumber = this.state.todos.length - 1
+        let newInput = {
+            userId:1,
+            id:indexnumber,
+            title:input
+        }
+        this.setState({
+            todos: [newInput, ...this.state.todos]
+        })
         fetch('https://jsonplaceholder.typicode.com/users/1/todos/posts', {
             method: 'POST',
             headers: {
@@ -35,6 +43,7 @@ export default class Dashboard extends Component {
           .catch(err => console.log(err))
     }
 
+  
     deleteToDo = (arg) => {
         let filteredArray = this.state.todos.filter(todo => todo.title !== arg)
         this.setState({
