@@ -1,0 +1,9 @@
+.recommendedvideos {
+  -webkit-box-flex: 0.85;
+      -ms-flex: 0.85;
+          flex: 0.85;
+  background-color: #F9F9F9;
+  height: 100vh;
+  margin-top: 30px;
+}
+/*# sourceMappingURL=recommendedvideos.css.map */
