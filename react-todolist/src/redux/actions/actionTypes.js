@@ -1,0 +1,3 @@
+export const GET_TODOS_SUCESS = "GET_TODOS_SUCCESS"
+export const ONCHANGE_INPUT = "ONCHANGE_INPUT"
+export const ADD_TODO = "ADD_TODO"

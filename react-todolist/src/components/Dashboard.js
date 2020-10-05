@@ -10,11 +10,7 @@ export default class Dashboard extends Component {
     }
 
     componentDidMount() {
-        fetch("https://jsonplaceholder.typicode.com/users/1/todos")
-        .then(data => data.json())
-        .then(data => {this.setState({
-                todos:data
-        })})
+   
     }
 
 
@@ -52,12 +48,11 @@ export default class Dashboard extends Component {
     }
     
     render() {
-        console.log(this.state.todos)
         return (
             <main>
                 <h1>TO-DO LIST</h1>
                 <Form handleAddButton = {this.handleAddButton}/>
-                <TodoContainer todos = {this.state.todos} deleteToDo={this.deleteToDo}/>
+                <TodoContainer deleteToDo={this.deleteToDo}/>
             </main>
         )
     }
