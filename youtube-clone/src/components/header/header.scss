@@ -3,9 +3,11 @@
   top: 0;
  padding-left: 23px;
  padding-top: 13px;;
+ padding-bottom: 20px;
   display: flex;
 align-items: center; 
  justify-content: space-between;
+ background-color: rgba(255, 255, 255, 0.95);
   
   .header-left{
     color: #606060;
@@ -21,7 +23,8 @@ align-items: center;
   .header-search{
       display: flex;  
       margin-left: 40px;    
-    height: 33px;      
+    height: 33px; 
+    position: relative;     
 
       input[type="text"]{
           border: 1px solid lightgray;
@@ -33,11 +36,17 @@ align-items: center;
       }
 
       button{
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
           width: 66px;
           height: 100%;
           border: 1px solid #ccc;
           background-color: #fafafa;
           color: gray;
+          cursor: pointer;
+
           .search__icon{
               font-size: 20px;
           }

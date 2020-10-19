@@ -4,6 +4,7 @@
   top: 0;
   padding-left: 23px;
   padding-top: 13px;
+  padding-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,6 +14,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 .header .header-left {
@@ -32,6 +34,7 @@
   display: flex;
   margin-left: 40px;
   height: 33px;
+  position: relative;
 }
 
 .header .header-search input[type="text"] {
@@ -44,11 +47,16 @@
 }
 
 .header .header-search button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
   width: 66px;
   height: 100%;
   border: 1px solid #ccc;
   background-color: #fafafa;
   color: gray;
+  cursor: pointer;
 }
 
 .header .header-search button .search__icon {

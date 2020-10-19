@@ -3,30 +3,105 @@ import './App.css';
 import Header from './components/header/Header';
 import Sidebar from './components/sidebar/Sidebar';
 import RecommendedVideos from './components/recommendedVideos/RecommendedVideos';
+import PlayVideo from "./components/recommendedVideos/videoCart/playVideo/PlayVideo"
+import axios from "axios";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 
 export default class Dashboard extends Component {
-
+    
+    API_KEY="AIzaSyDH4v51BTNyWPGlnp8eHPGui2Bu3EhfTas"
+   
     state = {
-        videos: [{
-            img: "https://i.ytimg.com/an_webp/nKgTvJgQxPE/mqdefault_6s.webp?du=3000&sqp=CKm4z_sF&rs=AOn4CLCI7rxtsL01UWd2RVrGinNIPNb4cA",
-            title: "Türkiye Avustralya 4 çeyrek full kayıt",
-            channel_name: "Tobias",
-            view_number: "62K",
-            publish_time: "2 years ago"
-        }]
+        ytvideos: [],
+        playvideo:{},
+        searchquery:"",
+        headline:"Trends"
     }
+
+    popularVideos = (() => {
+        axios.get(`https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=US&maxResults=50&key=${this.API_KEY}`)
+            .then(resp => this.setState({
+                ytvideos: resp.data.items
+            }))
+    })
+
+ 
+    handleSearchQuery = (e) => {
+        this.setState({
+            searchquery:e.target.value
+        })
+            }
+
+    searchVideos = (e) => {
+        e.preventDefault()
+        axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${this.state.searchquery}&key=AIzaSyAGN-GixhofNuWJ-9_d8UmHm23QEbpngCA`)
+            .then(resp => this.setState({
+                ytvideos: resp.data.items
+            }))
+    }
+
+    categoryVideos = (categoryId,title) => {
+        
+        if(categoryId===0){
+            this.popularVideos()
+            this.setState({
+                headline:"Trends"
+            })
+        }else{
+
+           
+            axios.get(`https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=US&videoCategoryId=${categoryId}&key=${this.API_KEY}`)
+            .then(resp => this.setState({
+                ytvideos:resp.data.items
+            }))
+
+            this.setState({
+                headline:title
+            })
+        }
+            }
+
+    getVideoId = (e,video) => {
+        this.setState({
+            playvideo:video
+        })
+    }
+
+    
+    componentDidMount() {
+        console.log(this.state.ytvideos)
+
+        this.popularVideos()
+    }
+
 
 
     render() {
         return (
             <div>
-                <Header />
+                <Header handleSearchQuery={this.handleSearchQuery} searchVideos={this.searchVideos}/>
                 <div className="app-page">
-                    <Sidebar />
-                    <RecommendedVideos videos={this.state.videos}/>
+                <Sidebar categoryVideos={this.categoryVideos}/>
+                
+                    <Switch>
+                    <Route exact path="/">
+                    <RecommendedVideos headline={this.state.headline} videos={this.state.videos} ytvideos={this.state.ytvideos} getVideoId={this.getVideoId}/>
+                    </Route>
+                   <Route exact path="/play">
+                    <PlayVideo video={this.state.playvideo}/>
+                   </Route>
+                    </Switch>
+               
                 </div>
+
             </div>
+
         )
     }
 }
