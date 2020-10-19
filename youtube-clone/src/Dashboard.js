@@ -15,7 +15,7 @@ import {
 
 export default class Dashboard extends Component {
     
-    API_KEY="AIzaSyDH4v51BTNyWPGlnp8eHPGui2Bu3EhfTas"
+    API_KEY=""
    
     state = {
         ytvideos: [],
@@ -40,7 +40,7 @@ export default class Dashboard extends Component {
 
     searchVideos = (e) => {
         e.preventDefault()
-        axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${this.state.searchquery}&key=AIzaSyAGN-GixhofNuWJ-9_d8UmHm23QEbpngCA`)
+        axios.get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${this.state.searchquery}&key=`)
             .then(resp => this.setState({
                 ytvideos: resp.data.items
             }))
