@@ -15,8 +15,8 @@ import {
 
 export default class Dashboard extends Component {
     
-    API_KEY="AIzaSyDH4v51BTNyWPGlnp8eHPGui2Bu3EhfTas"
-    API_KEY2="AIzaSyAGN-GixhofNuWJ-9_d8UmHm23QEbpngCA"
+    API_KEY=""
+    API_KEY2=""
    
     state = {
         ytvideos: [],
